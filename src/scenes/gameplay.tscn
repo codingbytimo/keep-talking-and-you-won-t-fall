@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://goll5qvavvgd"]
 
+[ext_resource type="Script" uid="uid://dx37ou6xm1imk" path="res://scenes/gameplay.gd" id="1_l1v76"]
 [ext_resource type="PackedScene" uid="uid://e6qm6bwh80l2" path="res://scenes/player/player.tscn" id="2_00tan"]
 [ext_resource type="Texture2D" uid="uid://ckhucsmeupicr" path="res://assets/sprites/world_tileset.png" id="3_l1v76"]
 
@@ -138,7 +139,18 @@ texture = ExtResource("3_l1v76")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ct7aa")
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_00tan"]
+a = Vector2(-3.0517578e-05, -636)
+b = Vector2(0, 13)
+
 [node name="Gameplay" type="Node2D" unique_id=1486039168]
+script = ExtResource("1_l1v76")
+death_screen_path = "uid://di1vy3cbq7oka"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1122893083]
+offset_right = 641.0
+offset_bottom = 360.0
+color = Color(0.003921569, 0.7019608, 0.8, 1)
 
 [node name="Player" parent="." unique_id=1318714816 instance=ExtResource("2_00tan")]
 position = Vector2(187, 287)
@@ -149,3 +161,13 @@ format = 2
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMap" unique_id=745287855]
 tile_map_data = PackedByteArray("AAAGABMAAAAAAAAAAAAHABMAAAAAAAAAAAAIABMAAAAAAAAAAAAJABMAAAAAAAAAAAAKABMAAAAAAAAAAAALABMAAAAAAAAAAAAMABMAAAAAAAAAAAAOABMAAAAAAAAAAAAPABMAAAAAAAAAAAAQABMAAAAAAAAAAAARABMAAAAAAAAAAAASABMAAAAAAAAAAAATABMAAAAAAAAAAAAUABMAAAAAAAAAAAAVABMAAAAAAAAAAAAWABMAAAAAAAAAAAAYABMAAAAAAAAAAAAZABMAAAAAAAAAAAAbABMAAAAAAAAAAAAcABMAAAAAAAAAAAAdABMAAAAAAAAAAAAXABMAAAAAAAAAAAAaABMAAAAAAAAAAAAhABMAAAAAAAAAAAAgABMAAAAAAAAAAAAfABMAAAAAAAAAAAAeABMAAAAAAAAAAAASABAAAAAAAAAAAAATABAAAAAAAAAAAAAUABAAAAAAAAAAAAANABMAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ocj2s")
+
+[node name="DeathLayer" type="Area2D" parent="." unique_id=1017575908]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathLayer" unique_id=645161531]
+position = Vector2(10, 340)
+rotation = 1.5707964
+shape = SubResource("SegmentShape2D_00tan")
+debug_color = Color(0.92780346, 0.00013688386, 0.76335317, 0.41960785)
+
+[connection signal="body_entered" from="DeathLayer" to="." method="_on_death_layer_body_entered"]
