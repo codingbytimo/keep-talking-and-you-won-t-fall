@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dx37ou6xm1imk" path="res://scenes/gameplay.gd" id="1_l1v76"]
 [ext_resource type="PackedScene" uid="uid://e6qm6bwh80l2" path="res://scenes/player/player.tscn" id="2_00tan"]
 [ext_resource type="Texture2D" uid="uid://ckhucsmeupicr" path="res://assets/sprites/world_tileset.png" id="3_l1v76"]
+[ext_resource type="PackedScene" uid="uid://btnnygnixetv2" path="res://scenes/main_menu.tscn" id="4_ct7aa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ct7aa"]
 texture = ExtResource("3_l1v76")
@@ -169,5 +170,11 @@ position = Vector2(10, 340)
 rotation = 1.5707964
 shape = SubResource("SegmentShape2D_00tan")
 debug_color = Color(0.92780346, 0.00013688386, 0.76335317, 0.41960785)
+
+[node name="MainMenu" parent="." unique_id=1235625610 instance=ExtResource("4_ct7aa")]
+offset_left = 48.0
+offset_top = 45.0
+offset_right = 48.0
+offset_bottom = 45.0
 
 [connection signal="body_entered" from="DeathLayer" to="." method="_on_death_layer_body_entered"]

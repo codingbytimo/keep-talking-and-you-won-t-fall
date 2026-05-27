@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://btnnygnixetv2"]
+
+[ext_resource type="Script" uid="uid://cfo2ufwb6mtae" path="res://scenes/main_menu.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="Control" unique_id=1235625610]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="MultiplayerMenu" type="VBoxContainer" parent="." unique_id=642300334]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -15.5
+offset_right = 22.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HostButton" type="Button" parent="MultiplayerMenu" unique_id=612058832]
+layout_mode = 2
+text = "Host"
+
+[node name="Join Button" type="Button" parent="MultiplayerMenu" unique_id=1888956401]
+layout_mode = 2
+text = "Join"
+
+[connection signal="pressed" from="MultiplayerMenu/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="MultiplayerMenu/Join Button" to="." method="_on_join_button_pressed"]

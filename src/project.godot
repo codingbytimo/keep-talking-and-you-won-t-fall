@@ -15,6 +15,10 @@ run/main_scene="uid://goll5qvavvgd"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+NetworkHandler="*uid://4tb5h1g5yoj0"
+
 [display]
 
 window/size/viewport_width=640
