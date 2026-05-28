@@ -8,7 +8,7 @@ var last_dir := 0.0
 @onready var animation_tree: AnimationTree = $Animation/AnimationTree
 
 func _ready() -> void:
-	$InputSynchronizer.set_multiplayer_authority(multiplayer.get_unique_id())
+	$InputSynchronizer.set_multiplayer_authority(1)
 	if multiplayer.is_server():
 		hide()
 

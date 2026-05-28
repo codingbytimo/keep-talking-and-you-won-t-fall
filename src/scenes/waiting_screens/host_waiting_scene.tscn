@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dh35wk5utkewe"]
+
+[ext_resource type="FontFile" uid="uid://dcdoqss6uxqcf" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_ohyks"]
+[ext_resource type="Script" uid="uid://iq04komcfgcj" path="res://scenes/waiting_screens/host_waiting_scene.gd" id="1_op1dd"]
+
+[node name="HostWaitingScene" type="Control" unique_id=650272289]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_op1dd")
+gameplay_path = "uid://goll5qvavvgd"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=58564132]
+layout_mode = 0
+offset_right = 641.0
+offset_bottom = 360.0
+color = Color(0.003921569, 0.7019608, 0.8, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1488103470]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = -8.0
+offset_right = 107.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_ohyks")
+theme_override_font_sizes/font_size = 30
+text = "Waiting for Player"
+
+[node name="Timer" type="Timer" parent="." unique_id=1990713247]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
